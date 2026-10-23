@@ -74,10 +74,6 @@ function renderOverview(main, vehicles, entries, analyses) {
 
   main.innerHTML = `
     <h1 class="page-title" tabindex="-1">Dashboard</h1>
-    <div class="actions smart-cta">
-      <a class="btn btn-primary" href="#/smart">${icon('camera')}Smart fuel entry</a>
-      <a class="btn" href="#/fuel/new?manual=1">${icon('fuel')}Add details manually</a>
-    </div>
     <section class="stats" aria-label="This month">
       <div class="stat stat-lead"><span class="stat-label">Fuel spend in ${fmt.month(monthKey(today), true)}</span><span class="stat-value">${fmt.money(month.amount)}</span></div>
       <div class="stat"><span class="stat-label">Fuel bought this month</span><span class="stat-value">${unit ? fmt.qty(month.quantity, unit) : `${month.count} fills`}</span></div>
@@ -131,9 +127,7 @@ function renderVehicle(main, v, analysis, entries) {
     </dl>
 
     <div class="actions">
-      <a class="btn btn-primary" href="#/smart?v=${encodeURIComponent(v.id)}">${icon('camera')}Smart fuel entry</a>
-      <a class="btn" href="#/fuel/new?manual=1&v=${encodeURIComponent(v.id)}">${icon('fuel')}Add details manually</a>
-      <a class="btn" href="#/history?v=${encodeURIComponent(v.id)}">Full history</a>
+      <a class="btn btn-primary" href="#/history?v=${encodeURIComponent(v.id)}">Full history</a>
       <a class="btn btn-quiet" href="#/vehicles/${encodeURIComponent(v.id)}/edit">Edit vehicle</a>
     </div>
 
@@ -144,6 +138,6 @@ function renderVehicle(main, v, analysis, entries) {
 
     <section class="block">
       <h2>Recent fills</h2>
-      ${recent ? `${calcLegend}<ul class="entries">${recent}</ul>` : `<p class="muted">No fills yet. <a href="#/fuel/new?v=${encodeURIComponent(v.id)}">Add the first one</a>.</p>`}
+      ${recent ? `${calcLegend}<ul class="entries">${recent}</ul>` : `<p class="muted">No fills yet. <a href="#/fuel/new?v=${encodeURIComponent(v.id)}">Add the first one</a> with the Add fuel button below.</p>`}
     </section>`;
 }
