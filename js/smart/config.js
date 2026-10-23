@@ -6,7 +6,7 @@
 // No API keys ever go in this file; the key lives only in the Worker's secrets.
 
 export const SMART_CONFIG = {
-  readerUrl: '',
+  readerUrl: 'https://mileagemate-reader.vinusmiles.workers.dev',
   acceptedTypes: ['image/jpeg', 'image/png', 'image/webp'],
   maxFileBytes: 20 * 1024 * 1024, // reject anything larger before processing
   maxEdgePx: 1600, // photos are resized so the long edge is at most this
